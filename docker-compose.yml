@@ -2,13 +2,15 @@ version: '3.9'
 
 services:
   coweureka:
-    container_name: eureka
-    image: eureka
+    container_name: ${APPLICATION_NAME}
+    image: ${REPOSITORY}/${APPLICATION_NAME}:${SPRING_PROFILES_ACTIVE}
     build:
       context: .
       dockerfile: ./Dockerfile
     ports:
-      - 8761:8761
+      - ${EXTERNAL_PORT}:${INTERNAL_PORT}
+    env_file:
+      - .env
     networks:
       - cownetwork
 
