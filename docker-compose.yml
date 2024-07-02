@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   coweureka:
     container_name: ${APPLICATION_NAME}
